@@ -1,33 +1,33 @@
-### Usage
+### Cara Penggunaan
 
-Make sure you have installed the prerequisites
+Pastikan anda sudah menginstall prerequisites
 
-**Step 1 : Run docker-compose.yml**
+**Step 1 : Jalankan docker-compose.yml**
 
 ```
 docker-compose up -d
 ``` 
 
-**Step 2 : Install Dependencies**
+**Step 2 : Install Depedensi**
 
 ```
 pip install -r requirements.txt
 ``` 
 
-**Step 3 : Run migration**
+**Step 3 : Lakukan Migrasi**
 
 ```
 python manage.py migrate
 ``` 
 
-**Step 4 : Serve Your API**
+**Step 4 : Jalankan Server**
 
 ```
 python manage.py runserver
 ```
 
-### Configuration
+### Konfigurasi
 
 | Variable            | Default                               | Required  | Description                  |
 | --------------      | ------------------------------------- | --------- | ---------------------------- |
-| KA_DB_PRIMARY       | postgresql://dev:dev@db:5432/ka_core  | No        | Postgres URI for master db   |
+| DB_PRIMARY       | postgresql://admin:admin@db:5432/rekapitulasi  | No        | Postgres URI untuk database utama   |
