@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: 'postgres:12'
+    container_name: 'rekapitulasi_db'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: rekapitulasi
+
+  pgadmin:
+    image: chorss/docker-pgadmin4
+    ports:
+      - 5050:5050
