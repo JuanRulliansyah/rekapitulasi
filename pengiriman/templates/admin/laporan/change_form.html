@@ -1,0 +1,21 @@
+{% extends "admin/change_form.html" %}
+{% block submit_buttons_bottom %}
+    {% if original and original.status == "new" %}
+        <div class="submit-row" style="margin-top: 20px">
+            <p class="deletelink-box">
+                <a href="{% url 'admin:pengiriman' original.pk %}" class="button" style="padding: 10px 15px">
+                     Generate AWB
+                </a>
+            </p>
+        </div>
+    {% elif original and original.status == "awb_created" %}
+        <div class="submit-row" style="margin-top: 20px">
+            <p class="deletelink-box">
+                <a target="_blank" href="{% url 'shipment:pengiriman' original.logistic_order_id %}" class="button" style="padding: 10px 15px">
+                     Print Shipment Label
+                </a>
+            </p>
+        </div>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

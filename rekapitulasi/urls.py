@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from laporan.views import laporan_view
+from laporan.views import laporan_view, ekspor_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('laporan/ekspor/', laporan_view, name="mobil/register/"),
+    path('laporan/', laporan_view, name="laporan/"),
+    path('laporan/ekspor/', ekspor_view, name="laporan/ekspor/"),
 ]

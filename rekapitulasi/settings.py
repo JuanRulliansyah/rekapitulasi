@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'petugas',
     'supir',
     'supplier',
+    'laporan',
 ]
 
 MIDDLEWARE = [

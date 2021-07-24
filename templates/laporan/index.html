@@ -1,0 +1,53 @@
+{% extends "admin/base_site.html" %}
+{% load admin_urls %}
+{% load static %}
+{% load i18n %}
+{% block extrahead %}
+    {{ block.super }}
+    {{ media }}
+    <script src="{% static 'admin/js/cancel.js' %}" async></script>
+{% endblock %}
+
+{% block bodyclass %}admin-user{% endblock %}
+
+{% block title %}
+    Laporan Ekspor {{ order_shipment.logistic_order_id }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% translate 'Home' %}</a>&nbsp;&rsaquo;
+    <a href="/admin/pengiriman/pengiriman/">{% translate 'Pengiriman' %}</a>
+    &rsaquo; Ekspor Laporan
+</div>
+{% endblock %}
+
+{% block content %}
+    <form action="ekspor/" method="post">
+        {% csrf_token %}
+        <div>
+            <div class="form-row">
+                <p><b>Status Pengiriman</b></p>
+                <select id="status" name="status">
+                  <option value="barang_masuk">Barang Masuk</option>
+                  <option value="barang_keluar">Barang Keluar</option>
+                </select>
+            </div>
+
+            <div class="form-row" style="margin-top: 10px;">
+                <p><b>Rentang waktu pengiriman</b></p>
+                Mulai dari
+                <input type="date" name="date_start">
+                Hingga
+                <input type="date" name="date_end">
+            </div>
+
+            <div class="submit-row" style="margin-top: 20px;">
+                <input type="submit" name="apply" value="Ekspor"/>
+                <a href="#" class="button cancel-link" style="padding: 10px 15px; background-color: #ba2121">
+                    {% translate "Kembali ke Dashboard" %}
+                </a>
+            </div>
+        </div>
+    </form>
+{% endblock %}
